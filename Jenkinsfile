@@ -6,6 +6,11 @@ pipeline {
         sh 'mvn -version'
       }
     }
+    stage('test') {
+      steps {
+        echo 'hello'
+      }
+    }
   }
   environment {
     name = 'neo'
