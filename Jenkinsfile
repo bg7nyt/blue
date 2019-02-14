@@ -2,8 +2,17 @@ pipeline {
   agent any
   stages {
     stage('Version') {
-      steps {
-        sh 'mvn -version'
+      parallel {
+        stage('Version') {
+          steps {
+            sh 'mvn -version'
+          }
+        }
+        stage('test') {
+          steps {
+            archiveArtifacts(fingerprint: true, onlyIfSuccessful: true, artifacts: 'READMD.md', excludes: 'doc.md')
+          }
+        }
       }
     }
     stage('test') {
