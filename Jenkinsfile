@@ -10,7 +10,7 @@ pipeline {
         }
         stage('test') {
           steps {
-            archiveArtifacts(fingerprint: true, onlyIfSuccessful: true, artifacts: 'READMD.md', excludes: 'doc.md')
+            archiveArtifacts 'README.md'
           }
         }
       }
