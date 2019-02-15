@@ -16,8 +16,25 @@ pipeline {
       }
     }
     stage('test') {
-      steps {
-        echo 'hello'
+      parallel {
+        stage('test') {
+          steps {
+            echo 'hello'
+          }
+        }
+        stage('') {
+          steps {
+            sleep 1
+          }
+        }
+        stage('') {
+          steps {
+            retry(count: 5) {
+              echo 'hello'
+            }
+
+          }
+        }
       }
     }
   }
