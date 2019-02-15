@@ -22,12 +22,12 @@ pipeline {
             echo 'hello'
           }
         }
-        stage('') {
+        stage('test1') {
           steps {
             sleep 1
           }
         }
-        stage('') {
+        stage('test2') {
           steps {
             retry(count: 5) {
               echo 'hello'
