@@ -57,6 +57,11 @@ pipeline {
             echo 'test'
           }
         }
+        stage('') {
+          steps {
+            cleanWs(cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenSuccess: true, cleanWhenUnstable: true, cleanupMatrixParent: true, deleteDirs: true, disableDeferredWipeout: true, notFailBuild: true, skipWhenFailed: true, externalDelete: '/aa')
+          }
+        }
       }
     }
     stage('test') {
