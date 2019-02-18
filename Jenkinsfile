@@ -32,10 +32,13 @@ pipeline {
 
           }
         }
-        stage('allocate') {
+        stage('alocate') {
           steps {
             ws(dir: 'src') {
-              echo 'test'
+              ws(dir: 'aaa') {
+                echo 'aaa'
+              }
+
             }
 
           }
