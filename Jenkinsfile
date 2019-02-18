@@ -112,6 +112,7 @@ pipeline {
           sh 'make'
         }
 
+        mail(subject: 'Test', body: 'aaaa', to: 'netkiller@msn.com')
       }
     }
   }
