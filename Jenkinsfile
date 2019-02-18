@@ -15,10 +15,19 @@ pipeline {
         }
         stage('dir') {
           steps {
-            cleanWs()
-            catchError()
             dir(path: 'src') {
               error 'aaa'
+            }
+
+          }
+        }
+        stage('subduer') {
+          steps {
+            dir(path: '/src') {
+              echo 'begin'
+              sh '''mvn test
+'''
+              echo 'end'
             }
 
           }
