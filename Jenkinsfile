@@ -45,6 +45,11 @@ pipeline {
             git(url: 'http://github.com/test/test.git', branch: 'master', changelog: true, credentialsId: '123', poll: true)
           }
         }
+        stage('exists') {
+          steps {
+            fileExists '/sss'
+          }
+        }
       }
     }
   }
