@@ -32,6 +32,14 @@ pipeline {
 
           }
         }
+        stage('allocate') {
+          steps {
+            ws(dir: 'src') {
+              echo 'test'
+            }
+
+          }
+        }
       }
     }
     stage('test') {
