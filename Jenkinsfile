@@ -131,6 +131,11 @@ pipeline {
 
           }
         }
+        stage('Groovy') {
+          steps {
+            load '/path/to/file'
+          }
+        }
       }
     }
   }
