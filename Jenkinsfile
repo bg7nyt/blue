@@ -50,6 +50,11 @@ pipeline {
             fileExists '/sss'
           }
         }
+        stage('job') {
+          steps {
+            build(job: '11', wait: true, propagate: true, quietPeriod: 1)
+          }
+        }
       }
     }
   }
