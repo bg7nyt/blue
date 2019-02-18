@@ -107,12 +107,22 @@ pipeline {
       }
     }
     stage('teatA') {
-      steps {
-        catchError() {
-          sh 'make'
-        }
+      parallel {
+        stage('teatA') {
+          steps {
+            catchError() {
+              sh 'make'
+            }
 
-        mail(subject: 'Test', body: 'aaaa', to: 'netkiller@msn.com')
+            mail(subject: 'Test', body: 'aaaa', to: 'netkiller@msn.com')
+          }
+        }
+        stage('tmp') {
+          steps {
+            pwd(tmp: true)
+            pwd()
+          }
+        }
       }
     }
   }
