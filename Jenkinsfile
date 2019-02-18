@@ -13,6 +13,16 @@ pipeline {
             archiveArtifacts 'README.md'
           }
         }
+        stage('dir') {
+          steps {
+            cleanWs()
+            catchError()
+            dir(path: 'src') {
+              error 'aaa'
+            }
+
+          }
+        }
       }
     }
     stage('test') {
