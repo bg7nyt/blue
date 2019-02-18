@@ -35,9 +35,14 @@ pipeline {
 
           }
         }
-        stage('') {
+        stage('bat') {
           steps {
             bat(returnStatus: true, returnStdout: true, label: 'aa', encoding: 'utf-8', script: 'dir')
+          }
+        }
+        stage('Git') {
+          steps {
+            git(url: 'http://github.com/test/test.git', branch: 'master', changelog: true, credentialsId: '123', poll: true)
           }
         }
       }
