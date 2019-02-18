@@ -57,7 +57,7 @@ pipeline {
             echo 'test'
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             cleanWs(cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenSuccess: true, cleanWhenUnstable: true, cleanupMatrixParent: true, deleteDirs: true, disableDeferredWipeout: true, notFailBuild: true, skipWhenFailed: true, externalDelete: '/aa')
           }
@@ -104,6 +104,14 @@ pipeline {
             build(job: '11', wait: true, propagate: true, quietPeriod: 1)
           }
         }
+      }
+    }
+    stage('teatA') {
+      steps {
+        catchError() {
+          sh 'make'
+        }
+
       }
     }
   }
