@@ -35,6 +35,11 @@ pipeline {
 
           }
         }
+        stage('') {
+          steps {
+            bat(returnStatus: true, returnStdout: true, label: 'aa', encoding: 'utf-8', script: 'dir')
+          }
+        }
       }
     }
   }
