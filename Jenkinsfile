@@ -43,6 +43,14 @@ pipeline {
 
           }
         }
+        stage('node') {
+          steps {
+            node(label: 'java-8') {
+              sh 'mvn package'
+            }
+
+          }
+        }
       }
     }
     stage('test') {
