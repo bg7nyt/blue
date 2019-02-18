@@ -123,6 +123,14 @@ pipeline {
             pwd()
           }
         }
+        stage('enforce') {
+          steps {
+            timeout(activity: true, time: 1) {
+              echo 'test'
+            }
+
+          }
+        }
       }
     }
   }
