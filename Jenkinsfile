@@ -51,6 +51,12 @@ pipeline {
 
           }
         }
+        stage('unix') {
+          steps {
+            isUnix()
+            echo 'test'
+          }
+        }
       }
     }
     stage('test') {
