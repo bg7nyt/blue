@@ -4,7 +4,7 @@ pipeline {
     stage('checkout') {
       steps {
         checkout(scm: [$class: 'GitSCM', branches: [[name: env.GIT_BUILD_REF]], 
-                          userRemoteConfigs: [[url: env.GIT_REPO_URL]]], changelog: true, poll: true)
+                                  userRemoteConfigs: [[url: env.GIT_REPO_URL]]], changelog: true, poll: true)
       }
     }
     stage('Version') {
@@ -140,6 +140,11 @@ pipeline {
         stage('Groovy') {
           steps {
             load '/path/to/file'
+          }
+        }
+        stage('deldir') {
+          steps {
+            deleteDir()
           }
         }
       }
